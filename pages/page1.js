@@ -4,7 +4,7 @@ import Input from '@/components/Input';
 export default function Page1() {
   return (
     <div>
-      <h1>Page 1</h1>
+      <h1>Test 1</h1>
       <Hello />
       <Input />
     </div>
