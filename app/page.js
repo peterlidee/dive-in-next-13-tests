@@ -6,7 +6,7 @@ export default function Home() {
       <h1>home</h1>
       <ul>
         <li>
-          <Link href='/page1'>Test 1</Link>
+          <Link href='/test1'>Test 1</Link>
         </li>
       </ul>
     </div>
