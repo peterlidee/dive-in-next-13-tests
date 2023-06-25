@@ -2,5 +2,5 @@
 
 export default function ClientChild() {
   console.log('Test 3: Rendering ClientChild');
-  return <div>ClientChild</div>;
+  return <h3>ClientChild</h3>;
 }

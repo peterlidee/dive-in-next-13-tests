@@ -6,7 +6,7 @@ export default function ClientParent() {
   console.log('Rendering ClientParent');
   return (
     <div>
-      <h1>ClientParent</h1>
+      <h2>ClientParent</h2>
       <ServerChild />
     </div>
   );
