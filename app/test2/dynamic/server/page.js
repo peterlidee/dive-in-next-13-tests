@@ -1,6 +1,6 @@
 export default function DynamicServer({ searchParams }) {
   console.log('Test 2: rendering DynamicServer');
-  // trigger dynamic route
+  // trigger dynamic rendering
   const foobar = searchParams?.foobar;
   return (
     <div>

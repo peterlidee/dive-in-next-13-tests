@@ -2,7 +2,7 @@
 
 export default function DynamicClient({ searchParams }) {
   console.log('Test 2: rendering DynamicClient');
-  // trigger dynamic route
+  // trigger dynamic rendering
   const foobar = searchParams?.foobar;
   return (
     <div>
