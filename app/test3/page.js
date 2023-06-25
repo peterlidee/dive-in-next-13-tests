@@ -6,27 +6,27 @@ export default function Test3() {
       <h1>Test 3</h1>
       <ul>
         <li>
-          <Link href='test3/static/clientinserver'>
+          <Link href='test3/static/clientInServer'>
             client in server / static route
           </Link>
         </li>
         <li>
-          <Link href='test3/dynamic/clientinserver'>
+          <Link href='test3/dynamic/clientInServer'>
             client in server / dynamic route
           </Link>
         </li>
         <li>
-          <Link href='test3/static/serverinclient'>
+          <Link href='test3/static/serverInClient'>
             server in client / static route
           </Link>
         </li>
         <li>
-          <Link href='test3/dynamic/serverinclient'>
+          <Link href='test3/dynamic/serverInClient'>
             server in client / dynamic route
           </Link>
         </li>
         <li>
-          <Link href='test3/static/serverinclientaschildren'>
+          <Link href='test3/static/serverInClientAsChildren'>
             server in client as children / static route
           </Link>
         </li>
