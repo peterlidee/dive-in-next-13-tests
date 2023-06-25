@@ -11,6 +11,9 @@ export default function Home() {
         <li>
           <Link href='/test2'>Test 2</Link>
         </li>
+        <li>
+          <Link href='/test3'>Test 3</Link>
+        </li>
       </ul>
     </div>
   );
