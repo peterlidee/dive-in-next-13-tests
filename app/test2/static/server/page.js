@@ -1,4 +1,8 @@
 export default function StaticServer() {
   console.log('Test 2: rendering StaticServer');
-  return <div>Server component in a static route</div>;
+  return (
+    <div>
+      <h2>Server component in a static route</h2>
+    </div>
+  );
 }
