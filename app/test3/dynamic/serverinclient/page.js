@@ -1,4 +1,4 @@
-import ClientParent from '../_components/ClientParent';
+import ClientParent from '../../_components/ClientParent';
 
 export default function page({ searchParams }) {
   // trigger dynamic rendering

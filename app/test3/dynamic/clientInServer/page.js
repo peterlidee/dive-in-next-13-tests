@@ -1,4 +1,4 @@
-import ServerParent from '../_components/ServerParent';
+import ServerParent from '../../_components/ServerParent';
 
 export default function page({ searchParams }) {
   // trigger dynamic rendering
