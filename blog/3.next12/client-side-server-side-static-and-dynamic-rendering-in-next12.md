@@ -50,7 +50,7 @@ We are testing here and are specifically interested in 2 things `next build` pro
 This is the cli output for our build:
 
 ```
-// cli (edited)
+(next cli)
 
 Route (pages)
 └ ○ /test1/static
@@ -149,7 +149,7 @@ export default function b() {
 When we run our build, `next cli` tells us this route was rendering static (symbol `○`):
 
 ```
-// cli (edited)
+(next cli)
 
 └ ○ /test1/staticWithState
 ```
@@ -204,7 +204,7 @@ export const getStaticProps = async () => {
 `Next cli` gives us a new output:
 
 ```
-// cli (edited)
+(next cli)
 
 ├ ● /test1/ssg
 
@@ -264,7 +264,7 @@ export const getServerSideProps = async () => {
 This time, things worked differently. The cli gives the expected output:
 
 ```
-// cli edited
+(next cli)
 
 ├ λ /test1/ssr
 
