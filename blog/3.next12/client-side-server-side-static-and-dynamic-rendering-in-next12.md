@@ -1,4 +1,4 @@
-# Client and server components and static and dynamic rendering prior to Next 13
+# Client and server components & static and dynamic rendering prior to Next 13
 
 We just talked about static and dynamic rendering and server and client components. But a lot of these concepts are not new but already existed prior to `Next 13`. Let's take a good look at this.
 
