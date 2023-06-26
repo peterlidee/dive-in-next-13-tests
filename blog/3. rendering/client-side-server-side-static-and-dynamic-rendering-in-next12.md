@@ -18,7 +18,7 @@ We first add a simple component in the components folder:
 // components/Component1.js
 
 export default function Component1() {
-  return (Component1
+  return (
     <div>
       <h1>Component1</h1>
     </div>
@@ -100,7 +100,11 @@ Remember, this isn't meant to be human readable. It's optimized server code. We 
     <!-- a lot of scripts -->
   </head>
   <body>
-    <div id="__next"><div>Component1</div></div>
+    <div id="__next">
+      <div>
+        <h1>Component1</h1>
+      </div>
+    </div>
     <!-- some json -->
   </body>
 </html>
@@ -120,9 +124,12 @@ import { useState } from 'react';
 export default function ComponentWithState() {
   const [value, setValue] = useState('Peter');
   return (
-    <label>
-      name: <input value={value} onChange={(e) => setValue(e.target.value)} />
-    </label>
+    <div>
+      <h1>Component with state</h1>
+      <label>
+        name: <input value={value} onChange={(e) => setValue(e.target.value)} />
+      </label>
+    </div>
   );
 }
 ```
@@ -155,7 +162,10 @@ And this is our prerendered HTML:
 
 <body>
   <div id="__next">
-    <label>name: <input value="Peter" /></label>
+    <div>
+      <h1>Component with state</h1>
+      <label>name: <input value="Peter" /></label>
+    </div>
   </div>
 </body>
 ```
