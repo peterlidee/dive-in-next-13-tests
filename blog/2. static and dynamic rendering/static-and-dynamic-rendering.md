@@ -59,7 +59,7 @@ The second scenario where `Next` uses dynamic rendering is when it encounters dy
 
 - `cookies()`: allows you to read or write cookies. This is obvious, there are no cookies are build time, so it has to happen at request time.
 - `header()`: allows you to read request headers. Again, obvious that headers only exist at request time.
-- `useSearchParams` is a hook that lets you read the current URL's query string. So using this hook on this page: `https://...?query=hello` will let you retrieve this value: `{ query: 'hello' }`. It is once more quite obvious that there are no search parameters present at build time so this hook can only be used at request time on the server. We talk mmore about this hook in later chapters.
+- `useSearchParams` is a hook that lets you read the current URL's query string. So using this hook on this page: `https://...?query=hello` will let you retrieve this value: `{ query: 'hello' }`. It is once more quite obvious that there are no search parameters present at build time so this hook can only be used at request time on the server. We talk more about this hook in later chapters.
 - `searchParams` prop in pages. In `app router`, each `page.js` file (that is each root route) receives props. One of these props is `searchParams`. So it returns the same as `useSearchParams` hook but via a prop and only in the special `page.js` file.
 
 And those are all the dynamic functions: `cookies` and `headers`, `useSearchParams` hook and `searchParams` props. If `Next` encounters any of these, it switches to dynamic rendering. This means there is no prerendering at build time but rendering server-side at request time.
