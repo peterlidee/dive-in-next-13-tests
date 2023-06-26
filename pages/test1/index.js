@@ -1,5 +1,5 @@
 import Hello from '@/components/Hello';
-import Input from '@/components/Input';
+import Input from '@/components/ComponentWithState';
 
 export default function Test1() {
   return (

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function Input() {
+export default function ComponentWithState() {
   const [value, setValue] = useState('Peter');
   return (
     <label>
