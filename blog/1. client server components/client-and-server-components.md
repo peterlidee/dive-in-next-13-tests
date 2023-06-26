@@ -1,4 +1,4 @@
-# Client and server components
+# Client and server components in Next 13
 
 ## Performance
 
