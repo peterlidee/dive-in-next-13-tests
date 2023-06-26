@@ -2,7 +2,7 @@ export default function ComponentSSR({ user }) {
   console.log('Rendering ComponentSSR');
   return (
     <div>
-      <h1>Server-side rendering</h1>
+      <h2>Server-side rendering</h2>
       <div>user: {user?.name}</div>
     </div>
   );

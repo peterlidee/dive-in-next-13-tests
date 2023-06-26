@@ -1,7 +1,7 @@
 export default function ComponentSSG({ user }) {
   return (
     <div>
-      <h1>Static Site Generation</h1>
+      <h2>Static Site Generation</h2>
       <div>user: {user?.name}</div>
     </div>
   );

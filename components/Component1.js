@@ -1,7 +1,7 @@
 export default function Component1() {
   return (
     <div>
-      <h1>Component1</h1>
+      <h2>Component1</h2>
     </div>
   );
 }
