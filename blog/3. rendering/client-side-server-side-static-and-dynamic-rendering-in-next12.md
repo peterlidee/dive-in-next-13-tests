@@ -20,7 +20,7 @@ We first add a simple component in the components folder:
 export default function Component1() {
   return (
     <div>
-      <h1>Component1</h1>
+      <h2>Component1</h2>
     </div>
   );
 }
@@ -87,7 +87,7 @@ So, inside `.next/server/pages/test1` we find our prerendered route `static.html
 <!-- prettier-ignore -->
 ```html
 <!-- .next/server/pages/test1/static.html -->
-<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js"></script><script src="/_next/static/chunks/webpack-bf1a64d1eafd2816.js" defer=""></script><script src="/_next/static/chunks/framework-cb5d924716374e49.js" defer=""></script><script src="/_next/static/chunks/main-1613ed95faa5e755.js" defer=""></script><script src="/_next/static/chunks/pages/_app-998b8fceeadee23e.js" defer=""></script><script src="/_next/static/chunks/pages/test1/static-33af6876e33d9390.js" defer=""></script><script src="/_next/static/VUTEKdKTY682PR1J59WjE/_buildManifest.js" defer=""></script><script src="/_next/static/VUTEKdKTY682PR1J59WjE/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div>Component1</div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/test1/static","query":{},"buildId":"VUTEKdKTY682PR1J59WjE","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js"></script><script src="/_next/static/chunks/webpack-bf1a64d1eafd2816.js" defer=""></script><script src="/_next/static/chunks/framework-cb5d924716374e49.js" defer=""></script><script src="/_next/static/chunks/main-1613ed95faa5e755.js" defer=""></script><script src="/_next/static/chunks/pages/_app-998b8fceeadee23e.js" defer=""></script><script src="/_next/static/chunks/pages/test1/static-33af6876e33d9390.js" defer=""></script><script src="/_next/static/VUTEKdKTY682PR1J59WjE/_buildManifest.js" defer=""></script><script src="/_next/static/VUTEKdKTY682PR1J59WjE/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div><h2>Component1</h2></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/test1/static","query":{},"buildId":"VUTEKdKTY682PR1J59WjE","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
 ```
 
 Remember, this isn't meant to be human readable. It's optimized server code. We are taking a look at this to better understand prerendering. By the way, do not mess with or edit this code and expect your app to still work! Let's clean it up.
@@ -102,7 +102,7 @@ Remember, this isn't meant to be human readable. It's optimized server code. We 
   <body>
     <div id="__next">
       <div>
-        <h1>Component1</h1>
+        <h2>Component1</h2>
       </div>
     </div>
     <!-- some json -->
@@ -125,7 +125,7 @@ export default function ComponentWithState() {
   const [value, setValue] = useState('Peter');
   return (
     <div>
-      <h1>Component with state</h1>
+      <h2>Component with state</h2>
       <label>
         name: <input value={value} onChange={(e) => setValue(e.target.value)} />
       </label>
@@ -163,7 +163,7 @@ And this is our prerendered HTML:
 <body>
   <div id="__next">
     <div>
-      <h1>Component with state</h1>
+      <h2>Component with state</h2>
       <label>name: <input value="Peter" /></label>
     </div>
   </div>
@@ -184,7 +184,7 @@ We make a new route `test1/ssg` that fetches a user from the[jsonplaceholder API
 export default function ComponentSSG({ user }) {
   return (
     <div>
-      <h1>Static Site Generation</h1>
+      <h2>Static Site Generation</h2>
       <div>user: {user?.name}</div>
     </div>
   );
@@ -220,7 +220,7 @@ And the prerendered HTML looks like this:
 <body>
   <div id="__next">
     <div>
-      <h1>Static Site Generation</h1>
+      <h2>Static Site Generation</h2>
       <div>
         user:
         <!-- -->Leanne Graham
@@ -244,7 +244,7 @@ Our last example covers server-side rendering (SSR). We will use the previous SS
 export default function ComponentSSR({ user }) {
   return (
     <div>
-      <h1>Server-side rendering</h1>
+      <h2>Server-side rendering</h2>
       <div>user: {user?.name}</div>
     </div>
   );
@@ -285,7 +285,7 @@ export default function ComponentSSR({ user }) {
   console.log('Rendering ComponentSSR');
   return (
     <div>
-      <h1>Server-side rendering</h1>
+      <h2>Server-side rendering</h2>
       <div>user: {user?.name}</div>
     </div>
   );
