@@ -1,4 +1,4 @@
-# Static and dynamic rendering
+# Static and dynamic rendering in Next 13
 
 Static rendering means that components are pre-rendered on the server at build time (`next build`). The result of this prerendering is cached and then served.
 
