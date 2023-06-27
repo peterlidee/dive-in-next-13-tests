@@ -26,7 +26,7 @@ export default function Component1() {
 }
 ```
 
-And then load that into the route `test1/static`
+And then load that into the route `test1/static` (`page router`)
 
 ```jsx
 // pages/test1/static.js
