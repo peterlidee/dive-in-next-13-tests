@@ -1,4 +1,8 @@
 export default function ServerChild() {
   console.log('Rendering ServerChild');
-  return <h3>ServerChild</h3>;
+  return (
+    <div>
+      <h3>ServerChild</h3>
+    </div>
+  );
 }
