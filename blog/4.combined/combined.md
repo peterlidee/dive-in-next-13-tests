@@ -132,7 +132,7 @@ export default function DynamicServer({ searchParams }) {
 So, it seems that `Next` is pretty smart about this. It recognizes that the `searchParams` props wasn't used and hence this component will not trigger a dynamic render. Let's try this:
 
 ```jsx
-// app/test2/dynamicServer/page.js
+// app/test2/dynamic/server/page.js
 export default function DynamicServer({ searchParams }) {
   console.log('Test 2: rendering DynamicServer');
   const params = searchParams;
@@ -149,7 +149,7 @@ export default function DynamicServer({ searchParams }) {
 Again, `Next` was pretty smart. There is no need for this component to trigger a dynamic rendering and `Next` recognized this. New update:
 
 ```jsx
-// app/test2/dynamicServer/page.js
+// app/test2/dynamic/server/page.js
 export default function DynamicServer({ searchParams }) {
   console.log('Test 2: rendering DynamicServer');
   const foobar = searchParams?.foobar;
