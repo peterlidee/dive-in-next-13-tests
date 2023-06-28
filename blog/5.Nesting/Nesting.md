@@ -10,7 +10,7 @@ The rules for dynamic rendering are simple. When `Next` encounters a dynamic fet
 
 - So, nesting 'dynamic' components (components that have a dynamic fetch or dynamic functions) inside 'static' components will make the route render dynamically.
 
-But, there is an exception to this rule: when using the `useSearchParams` hook. We will look into that later on.
+(There is an exception to this rule: when using the `useSearchParams` hook. We will look into that later on.)
 
 - Nesting 'static' components inside 'dynamic' components will also render the route dynamically.
 
@@ -20,8 +20,8 @@ But, there is an exception to this rule: when using the `useSearchParams` hook. 
 
 Nesting client components in other client components or server components inside other server components does not affect their rendering. This leaves us with 2 more possibilities:
 
-1. Nesting client components inside server components does not affect their rendering.
-2. Nesting server components inside client components can affect their rendering but you can avoid this.
+1. Nesting client components inside server components: no effect on rendering
+2. Nesting server components inside client components: can affect their rendering but you can avoid this.
 
 ### Nesting client components inside server components
 
@@ -31,7 +31,7 @@ Nesting a client component inside of a server component does **not** affect the 
 server > client > server > client
 ```
 
-In this route for example, only the first client component is guaranteed not to have been affected. The second client component may have been (because server inside client can affect server).
+In this route for example, only the first client component is guaranteed not to have been affected. The second client component may have been (because the second server is inside a client could have been affected).
 
 Here is an example of a client nested in a server component in a static route ( `page > server > client` ):
 
@@ -110,15 +110,14 @@ export default function page({ searchParams }) {
 }
 ```
 
-And the test works as expected. The route is dynamic and the logs are the same as above. This proves static or dynamic rendering is not affected by nesting client inside server components.
+And the test works as expected. The route is dynamic and the logs are the same as above. This proves static or dynamic rendering does not affect nesting client inside server components.
 
 ### Nesting client components inside server components
 
 Client components are components that:
 
 - Have interactivity and event listeners.
-- Use state or lifecycle hooks
-- Use custom hooks that use state of lifecycle hooks.
+- Use certain hooks.
 - Use browser only API's.
 - Are class components.
 
@@ -159,7 +158,7 @@ export default function ServerChild() {
 }
 ```
 
-We load these is a static route and in a dynamic route and run our tests.
+We load these in a static and in a dynamic route and run our tests.
 
 ```jsx
 // app/test3/static/serverInClient/page.js
@@ -188,7 +187,7 @@ But, `Next` calls this an 'unsupported' pattern. Not because it doesn't work but
 
 Luckily, there is are 2 ways around this:
 
-1. using composition.
+1. Using composition.
 2. Optimizing your project structure.
 
 ### Composition
@@ -228,7 +227,7 @@ export default function page() {
 }
 ```
 
-Success! 'Rendering ServerChild' not longer prints in the browser console. So, we nested a server component inside a client component without making this server component render as a client component. Again, static or dynamic rendering has no influence.
+Success! 'Rendering ServerChild' not longer prints in the browser console. So, we nested a server component inside a client component without making this server component into a client component. Again, static or dynamic rendering has no influence.
 
 Let's run this down again. Importing a server component into a client component will make this server component into a client component. We can avoid this by passing the server component as a prop (props.children) to the client component. This pattern ensures that our server component remains a server component (and benefits from better performance).
 
@@ -239,6 +238,7 @@ Aside from using the children props pattern we can also avoid this problem altog
 `Next` advocates a server first approach. Your project should be mostly server components, sprinkled with dots of client components. As nesting server components inside client component can affect the first, try to push your client components to the end of routes. `Next` calls this making client components leafs (as in the end of a tree).
 
 ```
+(tree)
 server > server > server > client (leaf)
 ```
 
@@ -246,11 +246,13 @@ Server components are new in `Next 13`. To make the most of them, you may want t
 
 ## Conclusion
 
-Nesting can alter components behavior. When you bring a 'dynamic component' into a route, the route - that is all components (also the 'static') - will render dynamically. There is one exception/cross over: the `useSearchParams` hook that we will cover in the next chapter.
+Nesting can alter components behavior. When you bring a 'dynamic component' into a route, the route - that is all components (also the 'static') - will render dynamically. There is one exception/cross over: the `useSearchParams` hook that we will cover in the next chapter. TODO
 
 In regards to nesting client and server components, we discovered that:
 
 1. Dynamic or static rendering do not influence the nesting behavior of client and server components.
 2. Nesting client components as leafs inside server components is a recommended pattern.
 3. Nesting server components inside client components by importing them works but hurts performance because the server components become client components.
-4. Therefor, nesting server components inside client components should be done using the composition pattern or should be avoided when possible.
+4. Therefore, nesting server components inside client components:
+   - Should be done using the composition pattern.
+   - Should be avoided when possible.
