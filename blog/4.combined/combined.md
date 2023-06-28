@@ -1,25 +1,26 @@
 # Dynamically and statically rendering client and server components
 
-Here's a quick recap.
+Here's a quick recap:
 
 **Client components** are components that:
 
 1. Use interactivity or event listeners.
-2. Use lifecycle or state hooks.
-3. Use custom hooks that use lifecycle of state hooks.
-4. Use browser only API's.
-5. Are Class components.
-6. (Start with the 'use client' directive.)
+2. Use certain hooks:
+   - Lifecycle or state hooks.
+   - Custom hooks that use lifecycle of state hooks.
+   - `useSearchParams` hook.
+3. Use browser only API's.
+4. Are Class components.
 
-All other components are by default **server components**.
+A client component does not equal a client-side rendered component. All other components are by default **server components**. These are new and never render client-side.
 
 **Dynamic rendering** means that routes are prerendered on the server at request time, not at build time. `Next` dynamically renders routes when it encounters a dynamic fetch or dynamic functions:
 
 1. `headers()` or `cookies()`
-2. `useSearchParams` hook
+2. `useSearchParams` hook: (not always)
 3. `searchParams` page prop
 
-All other routes are statically rendered. That means that they are prerendered at build time (`next build`).
+All other routes are statically rendered. That means that they are prerendered on the server at build time (`next build`).
 
 Before we combine these concepts we need one more tool, namely how do we test if a component is a server or a client component?
 
@@ -27,7 +28,7 @@ Before we combine these concepts we need one more tool, namely how do we test if
 
 We actually already know how to test this because we already did it in the previous chapter: using logs. I wrote this chapter before I wrote the previous chapter, that is how I knew how to do it. I'm going to describe the process in more detail here because there are some restrictions to this method.
 
-The `Next` docs are a bit confusing. They explicitly mention static rendering works differently for client and server components. Both are prerendered and cached. But:
+Some parts of the `Next` docs confused me. They explicitly mention static rendering works differently for client and server components. Both are prerendered and cached. But:
 
 > Server and Client Components are rendered differently during Static Rendering:
 >
@@ -51,9 +52,14 @@ But, I ran into some problems:
    - Never log in a production build.
 2. The client components
    - Always log in the console, both in development and in a production build.
-   - Only log in the terminal when the current route is the one that opened the project or on page refresh (reloading project).
+   - Only log in the terminal on a page refresh.
 
-**Conclusion**: We can test if a component is client or server by adding a console log statement. But, we can only use this in development mode AND we need to refresh the page to get reliable results. The result are only logs in the terminal for server components and logs in both terminal and console for client components. It's not great but it is all we have.
+**Conclusion**: We can test if a component is client or server by adding a console log statement. But, we can only use this in development mode AND we need to refresh the page to get reliable results:
+
+```
+client component logs: terminal (server) + console (browser)
+server component logs: terminal (server)
+```
 
 It's time to combine client and server components with static and dynamic rendering.
 
@@ -99,11 +105,11 @@ Route (app)
 ├ ○ /test2/static/server
 ```
 
-The tests in development mode also return as expected. We visiting (and refreshing) route `/test2/static/server` we get the 'Rendering StaticServer' in our terminal but not in the browser console. Route `/test2/static/client` logs 'Rendering StaticClient' in our terminal and our console.
+The tests in development mode also return as expected. When visiting (and refreshing) route `/test2/static/server` we get the 'Rendering StaticServer' in our terminal but not in the browser console. Route `/test2/static/client` logs 'Rendering StaticClient' in our terminal and our console.
 
 ## Dynamic rendering
 
-A route is rendered dynamically when `Next` detects dynamic fetches or dynamic function in the route. Dynamic functions are: `headers`, `cookies`, `useSearchParams` and the `searchParams` page props.
+A route is rendered dynamically when `Next` detects dynamic fetches or dynamic function in the route. Dynamic functions are: `headers`, `cookies`, `useSearchParams` (sometimes, see later) and the `searchParams` page props.
 
 There are some specifications.
 
@@ -168,7 +174,7 @@ Legend
 λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
 ```
 
-Success, our `DynamicServer` component / page triggered a dynamic route rendering. I took some time to debug this problem so we could learn that these dynamic function won't automatically trigger dynamic rendering and to demonstrate the usefulness of testing.
+Success, our `DynamicServer` component / page triggered a dynamic route rendering. I took some time to show you how I debugged this problem so we could learn that these dynamic function won't automatically trigger dynamic rendering and to demonstrate the usefulness of testing.
 
 Lastly, let's create a `DynamicClient` component and run build:
 
@@ -204,6 +210,6 @@ Running `next dev` to test client or server component also yields the expected r
 
 We spent some of our time in this chapter trying to figure out how to test if a component is a client or a server component. We found a flawed but usable method.
 
-We then made 4 test: a statically rendered client and server component and a dynamically rendered client and server component;
+We then made 4 test: a statically rendered client and server component and a dynamically rendered client and server component.
 
 Every chapter till now was pretty much a setup for the following chapters where we will look into more practical thing like nesting and passing props but also _quirky_ details. I will walk you through all of these using examples.
