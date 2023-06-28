@@ -1,14 +1,14 @@
 # Client and server components & static and dynamic rendering prior to Next 13
 
-We just talked about static and dynamic rendering and server and client components. But a lot of these concepts are not new but already existed prior to `Next 13`. Let's take a good look at this.
+We just talked about static and dynamic rendering and server and client components. But a lot of these concepts are not new but already existed prior to `Next 13`. Let's take a look at these so we can better understand `Next 13`.
 
-`Next` says all component in older versions of `Next` were client components. But that is a confusing statement. Let's take a look at some examples.
+We are going to focus on the fact that client components get rendered server-side. Remember, `Next` says that all components prior to `Next 13` were client components and components in `pages router` are all client components.
 
-We are going to write these tests in `create-next-app` with the latest version of `Next` (13.4.7 at the time of writing). But we are not using the app folder but the old pages folder. `Next` behavior in this folder is the same as it was in `Next 12`.
+This means that we can test 'old' client component behavior by just using the `pages router` in a `Next 13` project.
 
 To group all test, we made a route `/test1`. Each example then gets a subroute `/test1/example`, `/test1/anotherExample`. Finally, the root of route `/test1` links to all these subroutes.
 
-_Note_: at the time of writing this, there is a bug in `Next`. Although `Next` guarantees that you can use both `app router` and `pages router` in the same project, there is a [bug](https://github.com/netlify/next-runtime/issues/2089) that causes a full page reload when you browse from an `app route` to a `pages route` or vice versa. This is unfortunate but does not influence our tests.
+_Note_: at the time of writing this, there is a bug in `Next` (13.4.7). Although `Next` guarantees that you can use both `app router` and `pages router` in the same project, there is a [bug](https://github.com/netlify/next-runtime/issues/2089) that causes a full page reload when you browse from an `app route` to a `pages route` or vice versa. This is unfortunate but does not influence our tests.
 
 ## Static (no initial props)
 
@@ -64,9 +64,7 @@ We build the `/test1/static` route in the `pages router`. Our route is prepended
 ○  (Static)  automatically rendered as static HTML (uses no initial props)
 ```
 
-But what does this mean? A static page route means that the route (all the components that make up a page) was prerendered server-side at build time. It is server-side because we didn't use the browser in this process. Build time means that this process happened when we used the `next build` command. Before we've actually ran our project on the server (using `next start`).
-
-The implication here is that our `<Component1 />`, a client side component, was rendered server-side. In other words, in `Next`, client side components aren't really client-side components.
+But what does this mean? A static page route means that the route (all the components that make up a page) was prerendered server-side at build time. Server-side, at build time. A client component was rendered server-side. In other words, in `Next`, a client component does not equal a client-side rendered component.
 
 This is a `Next` thing. In pure `React`, client component are purely client-side. Why does `Next` do this? For performance. Prerendering the HTML on the server:
 
@@ -74,9 +72,10 @@ This is a `Next` thing. In pure `React`, client component are purely client-side
 - Puts less work on the shoulders of the client (the browser).
 - Requires less Javascript for the client to download.
 
-This is great but it also means that in `Next`, client components aren't purely client components. Which can be confusing.
+Conclusion:
 
-A quick note here. Having prerendered HTML does not mean that this component is ready to go. It still needs to be rendered on the client and hydrated (adding event listeners and state). There are subtleties in these processes that I don't full understand. But that doesn't really matter. Just remember, client components does not equal pure client rendering in `Next`.
+1. Client components can be rendered server-side.
+2. This is not new, `Next` has been doing this for a while.
 
 ### Prerendered files
 
@@ -90,7 +89,7 @@ So, inside `.next/server/pages/test1` we find our prerendered route `static.html
 <!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js"></script><script src="/_next/static/chunks/webpack-bf1a64d1eafd2816.js" defer=""></script><script src="/_next/static/chunks/framework-cb5d924716374e49.js" defer=""></script><script src="/_next/static/chunks/main-1613ed95faa5e755.js" defer=""></script><script src="/_next/static/chunks/pages/_app-998b8fceeadee23e.js" defer=""></script><script src="/_next/static/chunks/pages/test1/static-33af6876e33d9390.js" defer=""></script><script src="/_next/static/VUTEKdKTY682PR1J59WjE/_buildManifest.js" defer=""></script><script src="/_next/static/VUTEKdKTY682PR1J59WjE/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div><h2>Component1</h2></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/test1/static","query":{},"buildId":"VUTEKdKTY682PR1J59WjE","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
 ```
 
-Remember, this isn't meant to be human readable. It's optimized server code. We are taking a look at this to better understand prerendering. By the way, do not mess with or edit this code and expect your app to still work! Let's clean it up.
+This is optimized server code, not meant to be human readable. By the way, do not mess with or edit this code and expect your app to still work! Let's clean up this file.
 
 ```html
 <!DOCTYPE html>
@@ -170,11 +169,11 @@ And this is our prerendered HTML:
 </body>
 ```
 
-What this learn us, is that `Next` is able to prerender a route even if there is `React state` in it. It just renders the initial state. Remember this, having interactive components does not mean they can't be prerendered.
+What this learn us, is that `Next` is able to prerender a route even if there is `React state` in it. It just renders the initial state. Having interactive components does not mean they can't be prerendered. Also, this is not new.
 
 ## Static Site Generation
 
-Our first case was static rendering without `getStaticProps`. Now we look into static rendering with `getStaticProps` AKA static site generation (SSG).
+Our first test was static rendering without `getStaticProps`. Now we look into static rendering with `getStaticProps` AKA static site generation (SSG).
 
 We make a new route `test1/ssg` that fetches a user from the[jsonplaceholder API](https://jsonplaceholder.typicode.com/) and run build.
 
@@ -232,7 +231,7 @@ And the prerendered HTML looks like this:
 
 There is also an sibling `ssg.json` that contains the data from the fetch. `Next` uses this to hydrate somehow. The details are not important.
 
-I'm not here to learn you about SSG. The point was showing you another example of a client-side component (all components are client-side prior to `Next 13`) getting rendered server-side at build time and giving you a better feel how `Next` prerenders.
+I'm not here to learn you about SSG. The point was showing you another example of a client-side component (all components are client-side prior to `Next 13`) getting rendered server-side at build time and giving you a better feel how `Next` prerenders the HTML.
 
 ## Server-side rendering (SSR)
 
@@ -274,9 +273,9 @@ This time, things worked differently. The cli gives the expected output:
 But what does this mean? Firstly, there is no prerendered html. `.next/server/pages/test1/ssr.html` does NOT exist. `Next` runs `getServerSideProps` on the server at request time, not at build time.
 `Next` also prerenders the HTML server-side at request time but this HTML is not cached.
 
-So what we are seeing here is that a client-side component (all components are client-side prior to `Next 13`) is prerendered server-side. Not at build time this time but at request time.
+So what we are seeing here is that a client-side component is prerendered server-side. Not at build time this time but at request time.
 
-Are these server components then like we know them from `Next 13`? NO. Server components do not exist in `pages router`. But, more importantly, all of the above component test will still run partly on the client.
+Are these server components then like we know them from `Next 13`? NO. Server components do not exist in `pages router`. But, more importantly, all of the above component test will still render partly on the client.
 
 Again, I'm not sure exactly how the process works but we can verify this by adding a simple log statement to the above SSR example.
 
@@ -296,8 +295,13 @@ If we run this route either in development or production mode we will see the li
 
 ## Conclusion
 
-We just tested and proved that client-side components aren't purely client-side rendered in `Next 12`. They get prerendered server-side at build or request time. `Next` does this to improve performance of our application but it does cause some confusion: _client-side components can be prerendered server-side._
+We just tested and proved that:
 
-However, this does not mean that these component are server components because they are still somehow (not sure how) rendered in the client. This also means that true server components is something new that only `Next 13` brings. Client components is something we are already familiar with though `Next 13` changes the definition of what a client component is (Event listener, state or lifecycle hooks, custom hooks that use state or lifecycle hooks, browser-only API or class components).
+1. Client components can be (pre)rendered server-side.
+2. Server-side rendered client components still render (partly) on the client side.
 
-As far as rendering goes, older versions of `Next` already knew static and dynamic rendering. But again, `Next 13` changed their definition in the `app router`. (Dynamic fetches or functions cause dynamic rendering).
+Why does `Next` do this? To improve performance. Is this new, no. Is it confusing? Yeah a bit.
+
+As far as rendering goes, older versions of `Next` already knew static and dynamic rendering. But `Next 13` slightly changed their definition in the `app router`. (Dynamic fetches or functions cause dynamic rendering).
+
+In the next chapter, we will run tests in the `app router`.
