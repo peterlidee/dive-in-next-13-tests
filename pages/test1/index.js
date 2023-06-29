@@ -6,20 +6,20 @@ export default function Test1() {
       <h1>Test 1</h1>
       <ul>
         <li>
-          <Link href='/test1/static'>Component 1</Link>
+          <Link href='/test1/static'>/test1/static</Link>
         </li>
         <li>
-          <Link href='/test1/staticWithState'>Component with state</Link>
+          <Link href='/test1/staticWithState'>/test1/staticWithState</Link>
         </li>
         <li>
-          <Link href='/test1/ssg'>Component SSG</Link>
+          <Link href='/test1/ssg'>/test1/ssg</Link>
         </li>
         <li>
-          <Link href='/test1/ssr'>Component SSR</Link>
+          <Link href='/test1/ssr'>/test1/ssr</Link>
         </li>
       </ul>
       <div>
-        <Link href='/'>Back to home</Link>
+        <Link href='/'>home</Link>
       </div>
     </div>
   );
