@@ -7,16 +7,16 @@ export default function Test2() {
       <p>(Refresh page for reliable results.)</p>
       <ul>
         <li>
-          <Link href='/test2/static/server'>staticServer</Link>
+          <Link href='/test2/static/server'>/test2/static/server</Link>
         </li>
         <li>
-          <Link href='/test2/static/client'>staticClient</Link>
+          <Link href='/test2/static/client'>/test2/static/client</Link>
         </li>
         <li>
-          <Link href='/test2/dynamic/server'>dynamicServer</Link>
+          <Link href='/test2/dynamic/server'>/test2/dynamic/server</Link>
         </li>
         <li>
-          <Link href='/test2/dynamic/client'>dynamicClient</Link>
+          <Link href='/test2/dynamic/client'>/test2/dynamic/client</Link>
         </li>
       </ul>
     </div>
