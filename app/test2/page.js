@@ -4,7 +4,6 @@ export default function Test2() {
   return (
     <div>
       <h1>Test 2</h1>
-      <p>(Refresh page for reliable results.)</p>
       <ul>
         <li>
           <Link href='/test2/static/server'>/test2/static/server</Link>
