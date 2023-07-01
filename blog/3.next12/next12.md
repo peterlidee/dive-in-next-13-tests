@@ -177,7 +177,7 @@ What this learn us, is that `Next` is able to prerender a route even if there is
 
 Our first test was static rendering without `getStaticProps`. Now we look into static rendering with `getStaticProps` AKA static site generation (SSG).
 
-We make a new route `test1/ssg` that fetches a user from the[jsonplaceholder API](https://jsonplaceholder.typicode.com/) and run build.
+We make a new route `test1/ssg` that fetches a user from the [jsonplaceholder API](https://jsonplaceholder.typicode.com/) and run build.
 
 ```jsx
 // pages/test1/ssg.js
@@ -293,7 +293,7 @@ export default function ComponentSSR({ user }) {
 }
 ```
 
-If we run this route either in development or production mode we will see the line 'Rendering ComponentSSR' in our browser console. This will never happen with server components. They are guaranteed to only run on the server. (Later more on this)
+If we run this route either in development or production mode we will see the line 'Rendering ComponentSSR' in our browser console. This will never happen with server components. They are guaranteed to only run on the server.
 
 ## Conclusion
 
@@ -302,7 +302,7 @@ We just tested and proved that:
 1. Client components can be (pre)rendered server-side.
 2. Server-side rendered client components still render (partly) on the client side.
 
-Why does `Next` do this? To improve performance. Is this new, no. Is it confusing? Yeah a bit.
+Why does `Next` do this? To improve performance. Is this new? No. Is it confusing? Yeah a bit.
 
 As far as rendering goes, older versions of `Next` already knew static and dynamic rendering. But `Next 13` slightly changed their definition in the `app router`. (Dynamic fetches or functions cause dynamic rendering).
 
