@@ -149,7 +149,7 @@ We have ran similar tests before on both client and server components. So what d
 
 Yet the result was very different. There was an HTML file: `.next/server/app/test4/hybrid/nosuspense.html` so it was statically rendered. But, the `body` tag contains no HTML at all (we ignore the nav from `app/layout.js`). Only scripts.
 
-screenshot-static.html.png
+# insert nosuspenseHTML.png
 
 We mentioned before that these prerendered files are optimized server files, not meant to be humanly readable. But, using the search function, we are able to find string containing our elements, deeply nested inside arrays and objects. This snippet f.e. represents `<h3>NavBar<h3>` from our `<NavBar />` element.:
 
@@ -161,7 +161,7 @@ So, there was some prerendering done. Our JSX was translated to Javascript. On t
 
 However, when we run our current test route in development mode and then open the network tab in our browser console: we find the following:
 
-screenshot (todo new screenshot)
+# insert screenshot-network-hybrid-nosuspense.png
 
 The response from the server (dev server) does contain the string 'search'. It was server-side rendering in other words. What happened here is `Next` infamous client-side rendering that actually happens server-side. We looked into this in previous chapters.
 
@@ -321,7 +321,7 @@ So, our `<Search />` component was replaced with some sort of template. `Suspens
 
 Our network tab shows following:
 
-insert image (update with final title and route TODO)
+# insert screenshot-network-hybrid-suspense.png
 
 Proving that the component was client-side rendered the `Next` way, server-side. Note that our suspense fallback is gone.
 
