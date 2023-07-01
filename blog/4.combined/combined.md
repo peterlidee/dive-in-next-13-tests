@@ -28,7 +28,7 @@ Before we combine these concepts we need one more tool, namely how do we test if
 
 We actually already know how to test this because we already did it in the previous chapter: using logs. I wrote this chapter before I wrote the previous chapter, that is how I knew how to do it. I'm going to describe the process in more detail here because there are some restrictions to this method.
 
-Some parts of the `Next` docs confused me. They explicitly mention static rendering works differently for client and server components. Both are prerendered and cached. But:
+Some parts of the `Next` docs confused me. They explicitly mention static rendering works differently for client and server components. Both are prerendered and cached.
 
 > Server and Client Components are rendered differently during Static Rendering:
 >
@@ -125,7 +125,11 @@ Let's make a dynamic server component and run build:
 // app/test2/dynamic/server/page.js
 export default function DynamicServer({ searchParams }) {
   console.log('Test 2: rendering DynamicServer');
-  return <div>Server component in a dynamic route</div>;
+  return (
+    <div>
+      <h2>Server component in a dynamic route</h2>
+    </div>
+  );
 }
 ```
 
@@ -144,7 +148,11 @@ So, it seems that `Next` is pretty smart about this. It recognizes that the `sea
 export default function DynamicServer({ searchParams }) {
   console.log('Test 2: rendering DynamicServer');
   const params = searchParams;
-  return <div>Server component in a dynamic route</div>;
+  return (
+    <div>
+      <h2>Server component in a dynamic route</h2>
+    </div>
+  );
 }
 ```
 
@@ -161,14 +169,19 @@ Again, `Next` was pretty smart. There is no need for this component to trigger a
 export default function DynamicServer({ searchParams }) {
   console.log('Test 2: rendering DynamicServer');
   const foobar = searchParams?.foobar;
-  return <div>Server component in a dynamic route</div>;
+  return (
+    <div>
+      <h2>Server component in a dynamic route</h2>
+    </div>
+  );
 }
 ```
 
 ```
+(Next cli)
+
 Route (app)
 ...
-(Next cli)
 
 λ /test2/dynamic/server
 
@@ -187,7 +200,11 @@ Lastly, let's create a `DynamicClient` component and run build:
 export default function DynamicClient({ searchParams }) {
   console.log('Test 2: rendering DynamicClient');
   const foobar = searchParams?.foobar;
-  return <div>Client component in a dynamic route</div>;
+  return (
+    <div>
+      <h2>Client component in a dynamic route</h2>
+    </div>
+  );
 }
 ```
 
