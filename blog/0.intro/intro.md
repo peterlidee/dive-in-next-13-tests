@@ -1,6 +1,6 @@
 # Intro
 
-With the stable release of the new `app router` in `Next` I decided it was high time to look into `Next 13`.
+With the stable release of the new `app router` in `Next` I decided it was high time I looked into `Next 13`.
 
 Reading the migration guide was slightly confusing but I felt like I broadly understood the concepts. But my confusion grew.
 
@@ -8,7 +8,7 @@ When I tried to think through the combination of client and server components wi
 
 So I tried to reset and start over. I soon discovered that I had missed some nuances and misinterpreted certain concepts.
 
-As I was writing I soon to turn this into a series of posts because it had been a while since I posted anything but it also seemed that not a lot had been written on this topic.
+As I was reading, I soon decided to turn my research into a series of posts because not a lot has been written on this specific topic.
 
 ## Series breakdown
 
@@ -16,11 +16,11 @@ So, in this series I'm going to share the things I learned. I will make nuances 
 
 In the first 2 chapters we take a more theoretic look at server and client components & static and dynamic rendering.
 
-We then look back to the old `Next`. This helped me a lot. Placing the `new` concepts into a frame I already know clarified a lot of things.
+We then look back to the old `Next`. This helped me a lot. Placing the `new` concepts into a frame I already knew, clarified a lot of things for me.
 
-These first parts will have prepared you for some more practical `Next 13`. We finally start combining static and dynamic rendering with client and server components in easy to understand examples.
+These first parts will have prepared you for more practical `Next 13`. We finally start combining static and dynamic rendering with client and server components in easy to understand examples.
 
-In part 5 we cover nesting and in the last part, we the `useSearchParams` hook, which is interesting and useful but a bit of a handful.
+In part 5 we cover nesting and in the last part, we cover the `useSearchParams` hook, which is interesting and useful but a bit of a handful.
 
 ## Repo
 
