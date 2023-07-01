@@ -77,6 +77,4 @@ static  : server-side at build time
 dynamic : server-side at request time
 ```
 
-This concludes the theoretic part on static and server rendering. In the next part we need to handle some more concepts [TODO] . Then finally practical and combining.
-
-In a next part we start combining static and dynamic rendering with client and server components. This will be more practical using examples but firstbefore we that, there are some concepts that we need to take a closer look at.
+This concludes the theoretic part on static and server rendering. Before we start combining these concepts, we take a look at how older versions of `Next` already applied most of this. This gives us a better base, we learn from what we already know.
