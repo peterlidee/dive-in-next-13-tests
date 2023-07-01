@@ -61,8 +61,6 @@ I know, this doesn't fully make sense but we are going to come back to this a lo
 
 Every component that is not a client component is by default a server component in the new `app router`. If your route is defined in the `/app` folder, then every component in this route is either a server component or a client component. In the old `pages router`, all components are client components. Server components only exist in the `app router`.
 
-In older versions of `Next`, all components where client components. Server components did not exist yet. Starting with `Next 13`, Server component are the default. When a component is not a client component it is a server component (in the `app router`).
-
 Server components are also defined by the fact that they are rendered on the server only. They never render on the client. (Client components run both server and client-side.)
 
 ### Why server components
