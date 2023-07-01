@@ -31,9 +31,13 @@ Nesting a client component inside of a server component does **not** affect the 
 server > client > server > client
 ```
 
-In this route for example, only the first client component is guaranteed not to have been affected. The second client component may have been (because the second server is inside a client could have been affected).
+In this route for example, only the first client component is guaranteed not to have been affected. The second client component may have been (because the second server is inside a client could thus have been affected).
 
-Here is an example of a client nested in a server component in a static route ( `page > server > client` ):
+Here is an example of a client nested in a server component in a static route.
+
+```
+page > server > client
+```
 
 _Note_: all tests are available on [github](https://github.com/peterlidee/dive-in-next-13-tests).
 
@@ -112,7 +116,7 @@ export default function page({ searchParams }) {
 }
 ```
 
-And the test works as expected. The route is dynamic and the logs are the same as above. This proves static or dynamic rendering does not affect nesting client inside server components.
+And the test work as expected. The route is dynamic and the logs are the same as above. This proves static or dynamic rendering does not affect nesting client inside server components.
 
 ### Nesting client components inside server components
 
@@ -123,9 +127,7 @@ Client components are components that:
 - Use browser only API's.
 - Are class components.
 
-In these case, you need to add the 'use client' directive. If you add the 'use client' directive without using any of the above, the component will also be a client component. This is useless in the wild but useful when testing.
-
-But, there is another case when a component becomes a client component. If a (server) component is imported into a file that uses the `use client` directive, then (server) component becomes a client component.
+In these case, you need to add the 'use client' directive. But, there is another case when a component becomes a client component. If a (server) component is imported into a file that uses the `use client` directive, then this (server) component becomes a client component.
 
 In below example, `ClientParent` is a client component because of the `use client` directive. `ServerChild`, a server component, becomes a client component because it was imported into a client component.
 
