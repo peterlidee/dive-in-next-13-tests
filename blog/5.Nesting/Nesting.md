@@ -1,4 +1,4 @@
-# Nesting
+# Nesting components in Next 13
 
 In the previous chapter we combined client and server components with dynamic and static rendering. In this chapter we will look at what the effect is of nesting all these combination inside each other.
 
