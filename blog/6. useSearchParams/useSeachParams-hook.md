@@ -2,6 +2,8 @@
 
 The `useSearchParams` hook is complicated because it combines server and client-side rendering in a way no other function does. It took me a while to understand this hook but I will try to explain it as clearly as I can.
 
+_Note_: all tests are available on [github](https://github.com/peterlidee/dive-in-next-13-tests).
+
 ## Refresher
 
 `useSearchParams` is a hook that returns the search parameters from a url. It returns a read-only version of the [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) interface.

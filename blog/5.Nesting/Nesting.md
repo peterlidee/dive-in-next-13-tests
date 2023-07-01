@@ -35,6 +35,8 @@ In this route for example, only the first client component is guaranteed not to 
 
 Here is an example of a client nested in a server component in a static route ( `page > server > client` ):
 
+_Note_: all tests are available on [github](https://github.com/peterlidee/dive-in-next-13-tests).
+
 ```jsx
 // app/test3/static/clientInServer/page.js
 import ServerParent from './_components/ServerParent';

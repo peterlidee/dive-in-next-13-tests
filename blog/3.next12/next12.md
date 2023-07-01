@@ -8,6 +8,8 @@ This means that we can test 'old' client component behavior by just using the `p
 
 To group all test, we made a route `/test1`. Each example then gets a subroute `/test1/example`, `/test1/anotherExample`. Finally, the root of route `/test1` links to all these subroutes.
 
+_Note_: all tests are available on [github](https://github.com/peterlidee/dive-in-next-13-tests).
+
 _Note_: at the time of writing this, there is a bug in `Next` (13.4.7). Although `Next` guarantees that you can use both `app router` and `pages router` in the same project, there is a [bug](https://github.com/netlify/next-runtime/issues/2089) that causes a full page reload when you browse from an `app route` to a `pages route` or vice versa. This is unfortunate but does not influence our tests.
 
 ## Static (no initial props)

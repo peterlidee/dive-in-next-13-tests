@@ -69,6 +69,8 @@ A route is statically rendered when there are no dynamic functions or dynamic fe
 
 Let's make 2 examples. Note that we are using `app router` now and also note the console.log statements added for testing.
 
+_Note_: all tests are available on [github](https://github.com/peterlidee/dive-in-next-13-tests).
+
 ```jsx
 // app/test2/static/server/page.js
 export default function StaticServer() {
