@@ -1,6 +1,6 @@
-# The useSearchParams hook and it's influence on client and server components & dynamic and static rendering
+# The useSearchParams hook in Next 13
 
-The `useSearchParams` hook is a bit of a hot mess because it combines server and client-side rendering in a way no other function does. It took me a while to understand this hook but I will try to explain it as clearly as I can.
+The `useSearchParams` hook is complicated because it combines server and client-side rendering in a way no other function does. It took me a while to understand this hook but I will try to explain it as clearly as I can.
 
 ## Refresher
 
