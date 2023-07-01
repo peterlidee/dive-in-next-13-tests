@@ -246,7 +246,7 @@ Server components are new in `Next 13`. To make the most of them, you may want t
 
 ## Conclusion
 
-Nesting can alter components behavior. When you bring a 'dynamic component' into a route, the route - that is all components (also the 'static') - will render dynamically. There is one exception/cross over: the `useSearchParams` hook that we will cover in the next chapter. TODO
+Nesting can alter components behavior. When you bring a 'dynamic component' into a route, the route - that is all components (also the 'static') - will render dynamically. There is one exception/cross over: the `useSearchParams` hook that we will cover in the next chapter.
 
 In regards to nesting client and server components, we discovered that:
 
