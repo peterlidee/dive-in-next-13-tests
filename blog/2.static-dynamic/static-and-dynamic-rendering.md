@@ -2,9 +2,9 @@
 
 Static and dynamic rendering are both forms of server-side rendering.
 
-Static rendering means that components are pre-rendered on the server at **build time** (`next build`). The result of this prerendering is cached and then served.
+- Static rendering means that components are pre-rendered on the server at **build time** (`next build`). The result of this prerendering is cached and then served.
 
-Dynamic rendering means that components are rendered on the server at **request time**. The result of this (pre)rendering is not cached.
+- Dynamic rendering means that components are rendered on the server at **request time**. The result of this (pre)rendering is not cached.
 
 ## When to use dynamic rendering?
 
@@ -68,7 +68,7 @@ So, these dynamic functions: `cookies` and `headers`, `useSearchParams` hook and
 
 ## Conclusion
 
-If there are no dynamic fetches (no cache) or dynamic functions (`cookies`, `headers`, `useSearchParams` or `searchParams`), `Next` uses static rendering. That means that the route is prerendered server-side at build time and cached. Static rendering makes you project more performant, better, faster.
+If there are no dynamic fetches (no cache) or dynamic functions (`cookies`, `headers`, `useSearchParams` or `searchParams`), `Next` uses static rendering. That means that the route is prerendered server-side at build time and cached. Static rendering makes your project more performant, better, faster.
 
 But static rendering is limited in use. When you need the latest data from a database for example, or when data fetching requires authentication or when you need to display search results from a search query. In these cases, we can't render statically and have to use dynamic rendering.
 
