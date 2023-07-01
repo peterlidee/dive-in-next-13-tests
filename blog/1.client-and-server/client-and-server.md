@@ -95,6 +95,9 @@ In short, server components are better for performance and that is why `Next` ma
 
 In these cases you use client components.
 
-Client components can be a bit confusing because in `Next` they are rarely client-side rendered. `Next` optimizes all components (client and server) by prerendering them server-side. Due to the internal working of `Next`, client components aren't fully server-side rendered. They also render partly client-side. Server components never render client-side, only server-side.
+Client components can be a bit confusing because in `Next` they are rarely client-side rendered. `Next` optimizes all components (client and server) by prerendering them server-side.
+
+- Client components aren't fully server-side rendered. They also render partly client-side.
+- Server components never render client-side, only server-side.
 
 This was a theoretic explanation of client and server components. I would love to make this more concrete with examples but we need to look into static and dynamic rendering first as these impact client and server components.
