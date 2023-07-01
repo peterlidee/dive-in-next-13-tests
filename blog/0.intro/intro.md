@@ -4,7 +4,7 @@ With the stable release of the new `app router` in `Next` I decided it was high 
 
 Reading the migration guide was slightly confusing but I felt like I broadly understood the concepts. But my confusion grew.
 
-When I tried to think through the combination of client and server components with static and dynamic rendering I completely lost track. Even worse, the more I read about it, the more lost I got. It reminded me of the confusion I felt before I understood the `useStaticProps` and `useServerSide` functions.
+When I tried to think through the combination of client and server components with static and dynamic rendering I completely lost track. Even worse, the more I read about it, the more lost I got. It reminded me of the confusion I felt before I understood the `useStaticProps` and `useServerSideProps` functions.
 
 So I tried to reset and start over. I soon discovered that I had missed some nuances and misinterpreted certain concepts.
 
