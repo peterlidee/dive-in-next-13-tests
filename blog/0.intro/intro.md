@@ -1,3 +1,5 @@
+# A deep dive into client and server component versus static and dynamic rendering in Next 13
+
 # Intro
 
 With the stable release of the new `app router` in `Next` I decided it was high time I looked into `Next 13`.
@@ -8,7 +10,7 @@ When I tried to think through the combination of client and server components wi
 
 So I tried to reset and start over. I soon discovered that I had missed some nuances and misinterpreted certain concepts.
 
-As I was reading, I soon decided to turn my research into a series of posts because not a lot has been written on this specific topic.
+As I was reading, I decided to turn my research into a series of posts because not a lot has been written on this specific topic.
 
 ## Series breakdown
 
