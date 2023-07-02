@@ -112,15 +112,15 @@ So, nothing special here. Everything works as expected.
 Let's run the same test in a static route. We remove the 'dynamic' trigger from page and use that in route `test4/hybrid/nosuspense?search=hello`: (ignore hybrid for now, think of this as static)
 
 ```jsx
-// app/test4/static/nosuspense/page.js
+// app/test4/hybrid/nosuspense/page.js
 
-import NavBarWithSuspense from '../../_components/NavBarWithSuspense';
+import Navbar from '../../_components/Navbar';
 
 export default function NoSuspense() {
   return (
     <div>
       <h2>useSearchParams in a hybrid route</h2>
-      <NavBarWithSuspense />
+      <Navbar />
     </div>
   );
 }
@@ -130,7 +130,7 @@ Again, all tests work as expected. Route is static. All components except `<Sear
 
 However, strange things have happened in our preprendered HTML. Remember, `Next` prerenders static routes server-side at build time. We can visit these prerenders in the `.next/server/app` folder.
 
-We have ran similar tests before on both client and server components. So what do we expect given our previous experiences? Some HTML code, yes? Look back at the components. This is what I expected:
+We have run similar tests before on both client and server components. So what do we expect given our previous experiences? Some HTML code, yes? Look back at the components. This is what I expected:
 
 ```html
 <!-- brain render, not real -->
@@ -161,7 +161,7 @@ We mentioned before that these prerendered files are optimized server files, not
 
 So, there was some prerendering done. Our JSX was translated to Javascript. On top of that, the `<Search />` component was missing. Our `<Search />` component contains the string 'search' but we did not find it. Meaning, the `<Search />` component was not prerendered!
 
-However, when we run our current test route in development mode and then open the network tab in our browser console: we find the following:
+However, when we refresh our current test route in development mode and then open the network tab in our browser console: we find the following:
 
 # insert screenshot-network-hybrid-nosuspense.png
 
