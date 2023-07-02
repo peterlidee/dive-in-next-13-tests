@@ -1,6 +1,6 @@
 # Conclusion
 
-`Next 13` is a a big update. It introduces some big changes that have a lot of implications. Be open-minded about this. The framework changed so you should change with it.
+`Next 13` is a a big update. It introduced some big changes that have a lot of implications. Be open-minded about this. The framework changed so you should change with it.
 
 In this series I tried to help you with this. I walked you through some new and some old concepts so you could get a better understanding of `Next 13` and feel comfortable using it.
 
@@ -69,7 +69,7 @@ Why worry? Performance.
 
 ### 9. useSearchParams hook
 
-The `useSearchParams` hook has some complications. It behaves normally in a dynamic route. Wen using it in a static route, always use `Suspense` so you can profit from the improved performance of hybrid routing.
+The `useSearchParams` hook has some complications. It behaves normally in a dynamic route. Wen using it in a static route, always use `Suspense` so you can profit from the improved performance of hybrid rendering. Everything inside the `Suspense` boundary will be client-side rendered. The rest of the route will be statically rendered.
 
 ## What now?
 
