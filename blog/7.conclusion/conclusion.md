@@ -16,13 +16,15 @@ Client-side rendering in `Next` is mostly done server-side. This is great for pe
 
 Client components are used to add:
 
-- Interactivity and event listeners.
-- Certain hooks:
-  - State and lifecycle hooks.
-  - Custom hooks that use state and lifecycle hooks.
-  - `useSearchParams` hook.
-- Browser-only api's.
-- Class components.
+1. Interactivity and event listeners.
+2. Certain hooks:
+
+- State and lifecycle hooks.
+- Custom hooks that use state and lifecycle hooks.
+- `useSearchParams` hook.
+
+3. Browser-only api's.
+4. Class components.
 
 Client components do not equal client-side rendered components. In `Next` they will render mostly on the server and a bit on the client.
 
