@@ -21,7 +21,7 @@ To understand dynamic fetching it's necessary to take a look at how data fetchin
 
 There are 3 possible fetches:
 
-1. Static: puts the result of the fetch in the cache indefinitely.
+1/ Static: puts the result of the fetch in the cache indefinitely.
 
 ```js
 fetch('https://...');
@@ -29,13 +29,13 @@ fetch('https://...', { cache: 'force-cache' });
 // cache: 'force-cache' is the default, so above two are equal
 ```
 
-2. Revalidate data: puts the result of the fetch in the cache but revalidates cache at interval.
+2/ Revalidate data: puts the result of the fetch in the cache but revalidates cache at interval.
 
 ```js
 fetch('https://...', { next: { revalidate: 10 } });
 ```
 
-3. Dynamic fetches: the results of the fetch are never cached.
+3/ Dynamic fetches: the results of the fetch are never cached.
 
 ```js
 fetch('https://...', { cache: 'no-store' });
