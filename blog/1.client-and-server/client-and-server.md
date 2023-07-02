@@ -10,11 +10,9 @@ Client components are components that:
 
 1. Add interactivity and event listeners (`onChange`, `onClick`, ...)
 2. Use hooks:
-
    - State or lifecycle hooks (`useState`, `useEffect`, ...)
    - Custom hooks that use state or lifecycle hooks.
    - The `useSearchParams` hook. (later chapter on this)
-
 3. Use browser-only APIs (`localStorage`, `GeoLocation`,...)
 4. Use Class components.
 
