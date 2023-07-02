@@ -122,10 +122,10 @@ And the test work as expected. The route is dynamic and the logs are the same as
 
 Client components are components that:
 
-- Have interactivity and event listeners.
-- Use certain hooks.
-- Use browser only API's.
-- Are class components.
+1. Have interactivity and event listeners.
+2. Use certain hooks.
+3. Use browser only API's.
+4. Are class components.
 
 In these case, you need to add the 'use client' directive. But, there is another case when a component becomes a client component. If a (server) component is imported into a file that uses the `use client` directive, then this (server) component becomes a client component.
 
