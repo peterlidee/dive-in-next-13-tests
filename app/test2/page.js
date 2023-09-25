@@ -1,6 +1,13 @@
+'use client'
 import Link from 'next/link';
+import { useLocale } from '../Provider';
 
-export default function Test2() {
+
+export default function Test2(props) {
+  console.log(props, '?page')
+  
+  const locale = useLocale();
+  console.log(locale, '?l')
   return (
     <div>
       <h1>Test 2</h1>

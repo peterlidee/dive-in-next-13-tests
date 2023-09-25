@@ -1,10 +1,23 @@
 import Link from 'next/link';
+import { headers, cookies } from 'next/headers';
+import React, { useContext } from 'react';
+import Provider from './Provider'
+const getLocale = async (a, b,) => {
+  // true, true
+  console.log(!!a, !!b)
+  return 'en';
+}
 
-export default function RootLayout({ children }) {
+
+export default async function RootLayout({ children }) {
+  const locale = await getLocale(headers(), cookies());
+
   return (
     <html lang='en'>
       <body>
-        {children}
+        <Provider locale={locale}>
+          {children}
+        </Provider>
         <nav>
           <h3>Nav</h3>
           <ul>

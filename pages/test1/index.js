@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
-export default function Test1() {
+export default function Test1(props) {
+  console.log(props, '? props in page')
   return (
     <div>
       <h1>Test 1</h1>
